@@ -1,0 +1,135 @@
+.filter {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: -15px;
+  margin-right: -8px;
+  margin-bottom: 40px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 50px;
+  }
+}
+
+.filter__item {
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  @media screen and (max-width: 767px) {
+    margin-top: 15px;
+  }
+}
+
+.work-samples {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+  }
+}
+
+.work-samples__item {
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc(100% / 2 - 30px);
+    margin: 15px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    flex-basis: calc(100% / 3 - 30px);
+  }
+}
+
+.sample {
+  width: 100%;
+  outline: none;
+
+  @include transitionMain(box-shadow);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+      1px 4px 6px rgba(0, 0, 0, 0.16);
+  }
+}
+
+.sample__meta {
+  padding: 20px 24px;
+  border-right: 1px solid $borderColor;
+  border-bottom: 1px solid $borderColor;
+  border-left: 1px solid $borderColor;
+}
+
+.sample__name {
+  margin-top: 0;
+  margin-bottom: 4px;
+
+  color: $titleTextColor;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 2;
+  letter-spacing: 0.06em;
+}
+
+.sample__category {
+  margin: 0;
+
+  color: $primaryTextColor;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.03em;
+}
+
+.sample__thumb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sample__overlay {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 100%;
+
+  padding: 0 24px;
+
+  background-color: $overlayPortfolioColor;
+
+  @include transitionMain(transform);
+
+  .sample:hover &,
+  .sample:focus & {
+    transform: translateY(-100%);
+  }
+}
+
+.sample__details {
+  padding: 0;
+
+  color: $inverseTextColor;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+}

@@ -1,0 +1,34 @@
+.social {
+  @include centeredFlex();
+}
+
+.social__item:not(:last-child) {
+  margin-right: 10px;
+}
+
+.social__link {
+  @include centeredFlex();
+  height: 44px;
+  width: 44px;
+
+  border-radius: 50%;
+  background-color: $mainBgColor;
+  color: $iconColor;
+
+  @include transitionMain(background-color, color);
+
+  &--footer {
+    background-color: $footerSocialColor;
+    color: $inverseTextColor;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $accentColor;
+    color: $inverseTextColor;
+  }
+}
+
+.social__icon {
+  fill: currentColor;
+}

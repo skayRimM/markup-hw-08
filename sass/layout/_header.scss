@@ -1,0 +1,132 @@
+.site-header {
+  border-bottom: 1px solid $borderColor;
+}
+
+.site-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width: 1200px) {
+    justify-content: flex-start;
+  }
+}
+
+.site-header__nav-block {
+  display: none;
+  z-index: 1;
+
+  @media screen and (max-width: 767px) {
+    padding: 48px 40px;
+
+    animation-name: openMobileMenu;
+    animation-duration: 250ms;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+
+    &.is-open {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      background-color: $mainBgColor;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    margin-left: 88px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    margin-left: 93px;
+  }
+}
+
+.site-header__nav {
+  @media screen and (max-width: 767px) {
+    margin-bottom: auto;
+  }
+}
+
+.site-header__contacts {
+  @media screen and (min-width: 768px) {
+    margin-left: auto;
+  }
+}
+
+.site-header__social {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px -10px;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.site-header__social-item {
+  padding: 0 10px;
+  margin-bottom: 10px;
+
+  &:not(:last-child) {
+    border-right: 1px solid $borderInputColor;
+  }
+}
+
+.site-header__social-link {
+  font-weight: 500;
+  font-size: 18px;
+  @media screen and (max-width: 439px) {
+    font-size: calc(9px + (18 - 9) * (100vw - 300px) / (440 - 300));
+  }
+  line-height: 1.22px;
+  letter-spacing: 0.02em;
+
+  color: $accentColor;
+}
+
+.site-header_menu {
+  z-index: 1;
+  color: $navLinkColor;
+  background-color: transparent;
+  border: none;
+  outline: transparent;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    color: $accentColor;
+  }
+}
+
+.site-header__icon-burger {
+  display: block;
+  @extend %animateMenuIcon;
+  fill: currentColor;
+
+  .site-header_menu.is-open & {
+    display: none;
+  }
+}
+
+.site-header__icon-cross {
+  display: none;
+  @extend %animateMenuIcon;
+  fill: currentColor;
+
+  .site-header_menu.is-open & {
+    display: block;
+  }
+}

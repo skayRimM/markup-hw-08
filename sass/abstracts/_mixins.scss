@@ -1,0 +1,31 @@
+// @use "sass:string";
+
+@mixin centeredFlex($type: flex) {
+  display: $type;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin transitionMain($properties...) {
+  $transition: '';
+  @each $property in $properties {
+    $transition: $transition +
+      $property +
+      ' ' +
+      $transitionTime +
+      ' ' +
+      $cubicBezierMain +
+      ', ';
+  }
+  $transition: str-slice($transition, 1, -2);
+  transition: unquote($transition);
+}
+
+@mixin heroBgImage($url) {
+  background-image: linear-gradient(
+      to right,
+      $overlayShadingColor,
+      $overlayShadingColor
+    ),
+    url(#{$url});
+}

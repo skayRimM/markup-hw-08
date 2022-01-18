@@ -1,0 +1,30 @@
+body {
+  background-color: $mainBgColor;
+  color: $primaryTextColor;
+
+  font-family: $mainText, sans-serif;
+  font-style: normal;
+
+  &.modal-open,
+  &.menu-open {
+    overflow: hidden;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.photo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
